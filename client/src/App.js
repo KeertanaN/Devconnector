@@ -32,7 +32,7 @@ store.dispatch(logoutUser());
 }
 }
 
-class App extends Component{
+class App extends component{
 
   render(){
   return (

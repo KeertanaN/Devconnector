@@ -31,6 +31,14 @@ app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
 
+if(process.env.NODE_ENV === production){
+        app.use(express.static('client\build'));
+        
+        app.get('*',(req,res) => {
+                res.send(path.resolve(_dirname,'client','build','index.html'))
+        }
+}
+
 
 const port = 7000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
